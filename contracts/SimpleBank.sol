@@ -50,7 +50,7 @@ contract SimpleBank {
     // Added so ether sent to this contract is reverted if the contract fails
     // otherwise, the sender's money is transferred to contract
     function() external payable {
-        revert();
+        revert("invalid call");
     }
 
     /// @notice Get balance
