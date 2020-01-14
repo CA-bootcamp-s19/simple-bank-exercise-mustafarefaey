@@ -100,6 +100,13 @@ contract SimpleBank {
            Subtract the amount from the sender's balance, and try to send that amount of ether
            to the user attempting to withdraw.
            return the user's balance.*/
+        require(enrolled[msg.sender], "You are not enrolled!");
+        require(withdrawAmount <= balances[msg.sender], "Withdrawal amount should be less than or equals your balance!");
+
+        balances[msg.sender] -= withdrawAmount;
+        emit LogWithdrawal(msg.sender, withdrawAmount, balances[msg.sender]);
+
+        return balances[msg.sender];
     }
 
 }
