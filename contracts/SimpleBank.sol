@@ -42,6 +42,7 @@ contract SimpleBank {
     /* Use the appropriate global variable to get the sender of the transaction */
     constructor() public {
         /* Set the owner to the creator of this contract */
+        owner = msg.sender;
     }
 
     // Fallback function - Called if other functions don't match call or
